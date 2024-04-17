@@ -11,14 +11,7 @@ class OnBoarding extends StatelessWidget {
   Widget build(BuildContext context) {
     return OnBoardingSlider(
       finishButtonText: 'Register',
-      onFinish: () {
-        // Navigator.push(
-        //   context,
-        //   CupertinoPageRoute(
-        //     builder: (context) => const RegisterPage(),
-        //   ),
-        // );
-      },
+      onFinish: () {},
       finishButtonStyle: FinishButtonStyle(backgroundColor: primaryColor),
       skipTextButton: Text(
         'Skip',
@@ -36,14 +29,7 @@ class OnBoarding extends StatelessWidget {
           fontWeight: FontWeight.w600,
         ),
       ),
-      trailingFunction: () {
-        // Navigator.push(
-        //   context,
-        //   CupertinoPageRoute(
-        //     builder: (context) => const LoginPage(),
-        //   ),
-        // );
-      },
+      trailingFunction: () {},
       controllerColor: kDarkBlueColor,
       totalPage: 3,
       headerBackgroundColor: Colors.black,

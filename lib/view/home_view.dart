@@ -3,9 +3,12 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graduation_project/constant.dart';
-import 'package:graduation_project/view/all_books_view.dart';
+import 'package:graduation_project/view/bookmarks_view.dart';
+import 'package:graduation_project/view/cart_view.dart';
+import 'package:graduation_project/view/discover_bookd_view.dart';
 import 'package:graduation_project/view/home.dart';
-import 'package:graduation_project/widgets/customized_text.dart';
+import 'package:graduation_project/model/widgets/customized_text.dart';
+import 'package:graduation_project/view/settings_view.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({super.key});
@@ -19,9 +22,10 @@ class _HomeViewState extends State<HomeView> {
   int currentIndex = 0;
   List screens = [
     Home(),
-    AllBooksView(),
-    Home(),
-    Home(),
+    DiscoverBookView(),
+    BookmarkView(),
+    CartView(),
+    const SettingsView(),
   ];
 
   @override
@@ -31,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
           gradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        stops: [0.01, 0.5, 0.8],
+        stops: const [0.1, 0.6, 0.8],
         colors: [
           const Color(0x09FBD3).withOpacity(0.2),
           Colors.transparent,
@@ -57,6 +61,7 @@ class _HomeViewState extends State<HomeView> {
               });
             },
             fixedColor: Colors.white,
+            // selectedItemColor: primaryColor,
             backgroundColor: Colors.transparent,
             type: BottomNavigationBarType.fixed,
             items: const [
@@ -66,6 +71,8 @@ class _HomeViewState extends State<HomeView> {
                   icon: FaIcon(FontAwesomeIcons.bookOpen), label: ""),
               BottomNavigationBarItem(
                   icon: FaIcon(FontAwesomeIcons.bookmark), label: ""),
+              BottomNavigationBarItem(
+                  icon: FaIcon(FontAwesomeIcons.bagShopping), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
             ],
           ),
