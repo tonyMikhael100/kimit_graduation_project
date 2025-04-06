@@ -9,7 +9,7 @@ import 'package:graduation_project/cubits/auth_cubit/auth_cubit.dart';
 import 'package:graduation_project/cubits/books_cubit/books_cubit.dart';
 import 'package:graduation_project/generated/l10n.dart';
 import 'package:graduation_project/main.dart';
-import 'package:graduation_project/model/widgets/customized_text.dart';
+import 'package:graduation_project/view/widgets/customized_text.dart';
 import 'package:graduation_project/view/book_details_view.dart';
 import 'package:graduation_project/view/cart_view.dart';
 import 'package:graduation_project/view/failureView.dart';
@@ -32,9 +32,8 @@ class Home extends StatelessWidget {
             NetworkImage("https://itbook.store/img/books/9781098106225.png")),
   ];
 
-  // bool isDark = true;
 
-  CarouselController buttonCarouselController = CarouselController();
+ 
 
   @override
   Widget build(BuildContext context) {

@@ -6,8 +6,8 @@ import 'package:graduation_project/cubits/auth_cubit/auth_cubit.dart';
 import 'package:graduation_project/cubits/books_cubit/books_cubit.dart';
 import 'package:graduation_project/generated/l10n.dart';
 import 'package:graduation_project/main.dart';
-import 'package:graduation_project/model/widgets/customized_settings_item.dart';
-import 'package:graduation_project/model/widgets/customized_text.dart';
+import 'package:graduation_project/view/widgets/customized_settings_item.dart';
+import 'package:graduation_project/view/widgets/customized_text.dart';
 import 'package:graduation_project/view/authantication_view/sign_in_view.dart';
 
 class SettingsView extends StatelessWidget {

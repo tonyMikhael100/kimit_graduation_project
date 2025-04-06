@@ -5,9 +5,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/constant.dart';
 import 'package:graduation_project/cubits/auth_cubit/auth_cubit.dart';
 import 'package:graduation_project/cubits/books_cubit/books_cubit.dart';
-import 'package:graduation_project/model/widgets/customize_text_form_field.dart';
-import 'package:graduation_project/model/widgets/customized_elevatedbutton.dart';
-import 'package:graduation_project/model/widgets/customized_text.dart';
+import 'package:graduation_project/view/widgets/customize_text_form_field.dart';
+import 'package:graduation_project/view/widgets/customized_elevatedbutton.dart';
+import 'package:graduation_project/view/widgets/customized_text.dart';
 import 'package:graduation_project/view/authantication_view/sign_up_view.dart';
 import 'package:graduation_project/view/home_view.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -16,7 +16,6 @@ class SignInView extends StatelessWidget {
   SignInView({super.key});
   bool isLoading = false;
   static GlobalKey<FormState> signInKey = GlobalKey();
-
   @override
   Widget build(BuildContext context) {
     var myCubit = BlocProvider.of<AuthCubit>(context);
@@ -60,14 +59,14 @@ class SignInView extends StatelessWidget {
                 children: [
                   CustomizedText(
                       text: "Sign In", fontSize: 32, color: primaryColor),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Center(
                     child: CustomizedText(
                         text: "Bookly App", fontSize: 32, color: primaryColor),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Form(
@@ -86,7 +85,7 @@ class SignInView extends StatelessWidget {
                             // return null;
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         CustomizeTextFormField(
@@ -102,10 +101,10 @@ class SignInView extends StatelessWidget {
                             // return null;
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         CustoomizedElevatedButton(
@@ -120,16 +119,16 @@ class SignInView extends StatelessWidget {
                                 myCubit.getUserInformation();
                               }
                             }),
-                        SizedBox(
+                      const  SizedBox(
                           height: 10,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.grey,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            CustomizedText(
+                            const CustomizedText(
                                 text: "don't hava an account ?",
                                 fontSize: 14,
                                 color: Colors.grey),

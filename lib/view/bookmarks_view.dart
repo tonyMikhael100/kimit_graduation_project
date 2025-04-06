@@ -8,8 +8,8 @@ import 'package:graduation_project/constant.dart';
 import 'package:graduation_project/cubits/books_cubit/books_cubit.dart';
 import 'package:graduation_project/generated/l10n.dart';
 import 'package:graduation_project/model/book_model.dart';
-import 'package:graduation_project/model/widgets/customized_book_view_model.dart';
-import 'package:graduation_project/model/widgets/customized_text.dart';
+import 'package:graduation_project/view/widgets/customized_book_view_model.dart';
+import 'package:graduation_project/view/widgets/customized_text.dart';
 import 'package:graduation_project/view/book_details_view.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

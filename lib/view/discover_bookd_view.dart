@@ -6,8 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/constant.dart';
 import 'package:graduation_project/cubits/books_cubit/books_cubit.dart';
 import 'package:graduation_project/generated/l10n.dart';
-import 'package:graduation_project/model/widgets/customized_text.dart';
-import 'package:graduation_project/model/widgets/customized_textfield.dart';
+import 'package:graduation_project/view/widgets/customized_text.dart';
+import 'package:graduation_project/view/widgets/customized_textfield.dart';
 import 'package:graduation_project/view/book_details_view.dart';
 
 class DiscoverBookView extends StatelessWidget {

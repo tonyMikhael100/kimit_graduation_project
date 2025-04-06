@@ -21,6 +21,7 @@ class BookModel extends HiveObject {
     required this.image,
     required this.url,
     required this.price,
+    
   });
 
   factory BookModel.fromJson(Map<String, dynamic> jsonData) {

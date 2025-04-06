@@ -7,8 +7,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/constant.dart';
 import 'package:graduation_project/cubits/books_cubit/books_cubit.dart';
 import 'package:graduation_project/main.dart';
-import 'package:graduation_project/model/widgets/customized_elevatedbutton.dart';
-import 'package:graduation_project/model/widgets/customized_text.dart';
+import 'package:graduation_project/view/widgets/customized_elevatedbutton.dart';
+import 'package:graduation_project/view/widgets/customized_text.dart';
 
 import '../generated/l10n.dart';
 

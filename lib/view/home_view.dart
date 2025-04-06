@@ -9,7 +9,7 @@ import 'package:graduation_project/view/bookmarks_view.dart';
 import 'package:graduation_project/view/cart_view.dart';
 import 'package:graduation_project/view/discover_bookd_view.dart';
 import 'package:graduation_project/view/home.dart';
-import 'package:graduation_project/model/widgets/customized_text.dart';
+import 'package:graduation_project/view/widgets/customized_text.dart';
 import 'package:graduation_project/view/settings_view.dart';
 
 class HomeView extends StatefulWidget {
