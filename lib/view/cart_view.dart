@@ -7,7 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/constant.dart';
-import 'package:graduation_project/cubit/books_cubit.dart';
+import 'package:graduation_project/cubits/books_cubit/books_cubit.dart';
+import 'package:graduation_project/generated/l10n.dart';
 import 'package:graduation_project/model/widgets/customized_book_view_model.dart';
 import 'package:graduation_project/model/widgets/customized_elevatedbutton.dart';
 import 'package:graduation_project/model/widgets/customized_text.dart';
@@ -29,8 +30,8 @@ class CartView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const CustomizedText(
-                    text: "Cart",
+                  CustomizedText(
+                    text: S.of(context).Cart,
                     fontSize: 24,
                     color: Colors.white,
                   ),
@@ -40,20 +41,20 @@ class CartView extends StatelessWidget {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                title:
-                                    const Text("sure want to delete all cart?"),
+                                title: Text(
+                                    S.of(context).sure_want_to_delete_allcart),
                                 actions: [
                                   TextButton(
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      child: const Text("No")),
+                                      child: Text(S.of(context).no)),
                                   TextButton(
                                       onPressed: () {
                                         myCubit.deleteAllCart();
                                         Navigator.pop(context);
                                       },
-                                      child: const Text("Yes")),
+                                      child: Text(S.of(context).yes)),
                                 ],
                               );
                             });
@@ -87,14 +88,14 @@ class CartView extends StatelessWidget {
                           backgroundColor: primaryColor,
                           foregroundColor: Colors.white,
                           icon: Icons.delete,
-                          label: 'Delete',
+                          label: S.of(context).delete,
                         ),
                         SlidableAction(
                           onPressed: (value) {},
                           backgroundColor: const Color(0xFF21B7CA),
                           foregroundColor: Colors.white,
                           icon: Icons.share,
-                          label: 'Share',
+                          label: S.of(context).share,
                         ),
                       ],
                     ),
@@ -237,7 +238,7 @@ class CartView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomizedText(
-                          text: "Amount price",
+                          text: S.of(context).Amount_price,
                           fontSize: 16,
                           color: Colors.white.withOpacity(0.9)),
                       CustomizedText(
@@ -264,8 +265,9 @@ class CartView extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          const CustomizedText(
-                                              text: "Contact details",
+                                          CustomizedText(
+                                              text:
+                                                  S.of(context).contact_details,
                                               fontSize: 16,
                                               color: Colors.white),
                                           IconButton(
@@ -276,29 +278,32 @@ class CartView extends StatelessWidget {
                                                   FontAwesomeIcons.arrowRight))
                                         ],
                                       ),
-                                      const CustomizedTextfield(title: 'name'),
+                                      CustomizedTextfield(
+                                          title: S.of(context).name),
                                       const SizedBox(
                                         height: 10,
                                       ),
-                                      const CustomizedTextfield(
-                                          title: 'mobile No'),
+                                      CustomizedTextfield(
+                                          title: S.of(context).mobile_No),
                                       const SizedBox(
                                         height: 20,
                                       ),
-                                      const CustomizedText(
-                                          text: "Address details",
+                                      CustomizedText(
+                                          text: S.of(context).Address_details,
                                           fontSize: 16,
                                           color: Colors.white),
                                       const SizedBox(
                                         height: 20,
                                       ),
-                                      const CustomizedTextfield(
-                                          title:
-                                              'Address (house No ,Building ,street,area)'),
+                                      CustomizedTextfield(
+                                          title: S
+                                              .of(context)
+                                              .address_house_building),
                                       const SizedBox(
                                         height: 10,
                                       ),
-                                      const CustomizedTextfield(title: 'City'),
+                                      CustomizedTextfield(
+                                          title: S.of(context).city),
                                       SizedBox(
                                         height: 20,
                                       ),
@@ -310,7 +315,7 @@ class CartView extends StatelessWidget {
                                             children: [
                                               CustomizedText(
                                                   text:
-                                                      "No of item: ${myCubit.getTotalCountOfItem()}",
+                                                      "${S.of(context).No_of_item} ${myCubit.getTotalCountOfItem()}",
                                                   fontSize: 12,
                                                   color: Colors.white),
                                               CustomizedText(
@@ -321,8 +326,12 @@ class CartView extends StatelessWidget {
                                             ],
                                           ),
                                           CustoomizedElevatedButton(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.4,
                                               onPressed: () {},
-                                              text: "Order now"),
+                                              text: S.of(context).Order_now),
                                         ],
                                       ),
                                     ],
@@ -335,7 +344,7 @@ class CartView extends StatelessWidget {
                     child: Row(
                       children: [
                         CustomizedText(
-                            text: "Check out ",
+                            text: S.of(context).Check_out,
                             fontSize: 14,
                             color: Colors.white),
                         Expanded(

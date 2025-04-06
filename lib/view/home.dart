@@ -5,7 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graduation_project/constant.dart';
-import 'package:graduation_project/cubit/books_cubit.dart';
+import 'package:graduation_project/cubits/auth_cubit/auth_cubit.dart';
+import 'package:graduation_project/cubits/books_cubit/books_cubit.dart';
+import 'package:graduation_project/generated/l10n.dart';
 import 'package:graduation_project/main.dart';
 import 'package:graduation_project/model/widgets/customized_text.dart';
 import 'package:graduation_project/view/book_details_view.dart';
@@ -37,7 +39,8 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var myCubit = BlocProvider.of<BooksCubit>(context);
-    myCubit.getNewAndAllBooks();
+    var authCubit = BlocProvider.of<AuthCubit>(context);
+
     return BlocBuilder<BooksCubit, BooksState>(builder: (context, state) {
       if (state is BooksInitialState) {
         return Container(
@@ -57,8 +60,7 @@ class Home extends StatelessWidget {
                     ),
                     CircleAvatar(
                       backgroundColor: primaryColor,
-                      backgroundImage:
-                          const AssetImage('assets/images/avatar.png'),
+                      backgroundImage: NetworkImage(authCubit.homeImage),
                       radius: 22,
                     ),
                   ],
@@ -67,7 +69,7 @@ class Home extends StatelessWidget {
                   height: 30,
                 ),
                 Text(
-                  "Welcome back, Tony!",
+                  "${S.of(context).welcome_back_} ${authCubit.homeName}",
                   style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
@@ -78,7 +80,7 @@ class Home extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "What do you want to read today?",
+                  S.of(context).what_do_you_want,
                   style: GoogleFonts.poppins(
                     fontSize: 24,
                   ),
@@ -107,15 +109,17 @@ class Home extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const CustomizedText(
-                      text: "For You",
+                    CustomizedText(
+                      text: S.of(context).For_you,
                       fontSize: 24,
                       color: Colors.white,
                     ),
                     TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "View all",
+                      onPressed: () {
+                        myCubit.viewAllButton();
+                      },
+                      child: Text(
+                        S.of(context).view_all,
                         style: TextStyle(color: Colors.white),
                       ),
                     )
@@ -187,8 +191,8 @@ class Home extends StatelessWidget {
                         })),
                   ),
                 ),
-                const CustomizedText(
-                  text: "New Arrivals",
+                CustomizedText(
+                  text: S.of(context).New_arrivals,
                   fontSize: 24,
                   color: Colors.white,
                 ),

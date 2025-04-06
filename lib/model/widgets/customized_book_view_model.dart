@@ -5,7 +5,7 @@ class CustomizedBookViewModel extends StatelessWidget {
   final String image;
   final String bookName;
   final String description;
-  final double price;
+  final String price;
 
   const CustomizedBookViewModel({
     super.key,
@@ -33,7 +33,9 @@ class CustomizedBookViewModel extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width * 0.3,
             height: 160,
-            child: Image(image: NetworkImage('${image}')),
+            child: Hero(
+                tag: '${bookName}',
+                child: Image(image: NetworkImage('${image}'))),
           ),
           SizedBox(
             width: 10,

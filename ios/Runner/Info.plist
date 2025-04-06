@@ -50,5 +50,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+<!-- adding language to ios -->
+	<key>CFBundleLocalizations</key>
+    <array>
+    <string>en</string>
+    <string>ar</string>
+    </array>
 </dict>
 </plist>

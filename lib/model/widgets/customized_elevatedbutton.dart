@@ -4,9 +4,11 @@ import 'package:graduation_project/constant.dart';
 class CustoomizedElevatedButton extends StatelessWidget {
   final String text;
   final void Function()? onPressed;
+  final double width;
 
   const CustoomizedElevatedButton({
     required this.text,
+    required this.width,
     super.key,
     required this.onPressed,
   });
@@ -21,7 +23,7 @@ class CustoomizedElevatedButton extends StatelessWidget {
       ),
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        fixedSize: Size(MediaQuery.of(context).size.width * 0.4, 55),
+        fixedSize: Size(width, 55),
         backgroundColor: primaryColor,
       ),
     );

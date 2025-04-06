@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graduation_project/constant.dart';
+import 'package:graduation_project/cubits/books_cubit/books_cubit.dart';
 import 'package:graduation_project/view/bookmarks_view.dart';
 import 'package:graduation_project/view/cart_view.dart';
 import 'package:graduation_project/view/discover_bookd_view.dart';
@@ -18,18 +20,9 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  bool isDark = true;
-  int currentIndex = 0;
-  List screens = [
-    Home(),
-    DiscoverBookView(),
-    BookmarkView(),
-    CartView(),
-    const SettingsView(),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    var myCubit = BlocProvider.of<BooksCubit>(context);
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -55,10 +48,7 @@ class _HomeViewState extends State<HomeView> {
           padding: const EdgeInsets.all(20),
           child: BottomNavigationBar(
             onTap: (int index) {
-              setState(() {
-                currentIndex = index;
-                print(currentIndex);
-              });
+              myCubit.changeScreen(index);
             },
             fixedColor: Colors.white,
             // selectedItemColor: primaryColor,
@@ -77,7 +67,7 @@ class _HomeViewState extends State<HomeView> {
             ],
           ),
         ),
-        body: screens[currentIndex],
+        body: myCubit.screens[myCubit.currentIndex],
       ),
     );
   }

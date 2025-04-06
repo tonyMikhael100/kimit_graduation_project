@@ -4,7 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/constant.dart';
-import 'package:graduation_project/cubit/books_cubit.dart';
+import 'package:graduation_project/cubits/books_cubit/books_cubit.dart';
+import 'package:graduation_project/generated/l10n.dart';
 import 'package:graduation_project/model/widgets/customized_text.dart';
 import 'package:graduation_project/model/widgets/customized_textfield.dart';
 import 'package:graduation_project/view/book_details_view.dart';
@@ -20,8 +21,8 @@ class DiscoverBookView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomizedText(
-            text: "Discover Books",
+          CustomizedText(
+            text: S.of(context).Discover_books,
             fontSize: 24,
             color: Colors.white,
           ),
@@ -34,7 +35,7 @@ class DiscoverBookView extends StatelessWidget {
                 myCubit.getBookByNameOrAuthor(key: value);
               }
             },
-            title: "search by book or author",
+            title: S.of(context).search_by_book_or_author,
             preffixIcon: Icons.search,
             suffixIcon: Icons.mic,
           ),
