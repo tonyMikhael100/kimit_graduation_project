@@ -12,11 +12,17 @@ jobs:
       - name: 📥 Checkout source
         uses: actions/checkout@v3
 
-      - name: 💡 Set up Flutter
+      - name: 💡 Set up Flutter (v3.22.0 with Dart ≥ 3.3)
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.22.0'
           channel: stable
           architecture: x64
+
+      - name: 🧪 Print Flutter & Dart versions
+        run: |
+          flutter --version
+          dart --version
 
       - name: 📦 Get Flutter packages
         run: flutter pub get
@@ -34,17 +40,7 @@ jobs:
       - name: 🏗 Build IPA without code signing
         run: flutter build ipa --release --no-codesign
 
-      - name: 📤 Upload IPA to GitHub Release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/ios/ipa/Runner.ipa
-          asset_name: FlutterIpaExport.ipa
-          tag: v1.0
-          overwrite: true
-          body: "This is the first release"
-
-      - name: 🧳 Upload IPA as GitHub Artifact (backup download)
+      - name: 🧳 Upload IPA as GitHub Artifact
         uses: actions/upload-artifact@v4
         with:
           name: iOS-IPA
